@@ -1,9 +1,9 @@
 import React from "react";
-import NavMenu from "./Components/NavigationMenu/NavMenu";
+import Header from "./Components/Header/Header";
 function App() {
   return (
     <React.Fragment>
-      <NavMenu />
+      <Header />
     </React.Fragment>
   );
 }
