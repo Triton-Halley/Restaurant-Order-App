@@ -1,0 +1,43 @@
+.Item-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.form-Container input {
+  width: 40px;
+  height: 25px;
+  border-radius: 10px;
+  text-align: center;
+  margin-left: 5px;
+}
+.form-Container label {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+.AddBtn {
+  font-weight: bold;
+  display: block;
+  width: 90%;
+  padding: 5px;
+  margin: 5px;
+  background-color: #7e2606;
+  color: #fff;
+  border: 0;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.name {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.desc {
+  font-weight: bold;
+  font-style: italic;
+}
+.price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #c57f4c;
+}
