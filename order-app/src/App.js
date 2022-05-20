@@ -1,7 +1,11 @@
 import React from "react";
-
+import NavMenu from "./Components/NavigationMenu/NavMenu";
 function App() {
-  return <div className="App"></div>;
+  return (
+    <React.Fragment>
+      <NavMenu />
+    </React.Fragment>
+  );
 }
 
 export default App;
