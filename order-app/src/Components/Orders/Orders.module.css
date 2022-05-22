@@ -22,8 +22,29 @@
   align-items: center;
   justify-content: space-between;
   padding: 5px;
+  border-bottom: 1px solid;
 }
 .total span {
   font-size: 1.1rem;
   font-weight: bold;
+}
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px;
+}
+.buttons button {
+  width: 100px;
+  padding: 10px;
+  margin-left: 5px;
+  border: 1px solid #7d2504;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.OrderBtn {
+  background-color: #7d2504;
+  color: #fff;
+}
+.buttons button:hover {
 }

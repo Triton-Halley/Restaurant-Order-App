@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
 import AddToCartContext from "../../Context/AddToCart";
+import modal from "../../Context/ShowModal";
 import OrderItem from "./OrderItem";
 
 import Styles from "./Orders.module.css";
 
 const Orders = (props) => {
   const ctx = useContext(AddToCartContext);
+  const ctxModal = useContext(modal);
   const TotalAmount = ctx.Orders.reduce((acc, item) => {
     acc += item.price * item.Amount;
     return acc;
@@ -15,7 +17,13 @@ const Orders = (props) => {
     console.log(item);
     ctx.AddOrder(item);
   };
-  const RemoveItemFromCart = (id) => {};
+  const RemoveItemFromCart = (item) => {
+    ctx.RemoveOrder(item);
+  };
+
+  const closeModalHandler = () => {
+    ctxModal.closeModal();
+  };
 
   return (
     <div
@@ -32,13 +40,17 @@ const Orders = (props) => {
           Amount={item.Amount}
           order={item}
           addItem={AddItemToCart}
-          removeItem={RemoveItemFromCart.bind(null, item.id)}
+          removeItem={RemoveItemFromCart}
         />
       ))}
 
       <div className={Styles.total}>
         <h3>TotalAmount</h3>
         <span>${TotalAmount}</span>
+      </div>
+      <div className={Styles.buttons}>
+        <button onClick={closeModalHandler}>Close</button>
+        <button className={Styles.OrderBtn}>Order</button>
       </div>
     </div>
   );

@@ -11,7 +11,14 @@ const OrderItem = (props) => {
       Amount: "1",
     });
   };
-  const RemoveOrder = (e) => {};
+  const RemoveOrder = (e) => {
+    props.removeItem({
+      id: props.order.id,
+      name: props.name,
+      price: props.price,
+      Amount: "1",
+    });
+  };
   return (
     <div className={Styles.itemContainer}>
       <div className={Styles.sec1}>

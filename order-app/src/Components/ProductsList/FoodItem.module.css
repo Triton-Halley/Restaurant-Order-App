@@ -10,6 +10,7 @@
 .form-Container input {
   width: 40px;
   height: 25px;
+  border: 1px solid #7e2606;
   border-radius: 10px;
   text-align: center;
   margin-left: 5px;

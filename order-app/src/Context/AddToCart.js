@@ -31,6 +31,31 @@ export const AddToCartContextProvider = (props) => {
     });
     // console.log(Orders);
   };
+  const RemoveFromCart = (order) => {
+    let isFound = false;
+    setOrder((prev) => {
+      prev.forEach((item) => {
+        if (item.name === order.name) {
+          let amount = +item.Amount;
+          let amount1 = +order.Amount;
+          const f = amount - amount1;
+          if (f <= 0) {
+            const newPrev = prev.filter((item) => item.name !== order.name);
+            prev = newPrev;
+          } else {
+            item.Amount = f;
+          }
+          isFound = true;
+        }
+      });
+      if (isFound) {
+        return [...prev];
+      } else {
+        return [...prev, order];
+      }
+    });
+    // console.log(Orders);
+  };
   const update = (id, orderObj) => {
     const order = Orders.map((order) => {
       console.log(order.id);
@@ -50,6 +75,7 @@ export const AddToCartContextProvider = (props) => {
         price: 20,
         Amount: 5,
         AddOrder: AddToCart,
+        RemoveOrder: RemoveFromCart,
         Orders: Orders,
         Update: update,
       }}

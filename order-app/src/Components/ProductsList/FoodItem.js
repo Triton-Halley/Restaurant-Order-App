@@ -7,12 +7,14 @@ const FoodItem = (props) => {
   const Amount = useRef();
   const SubmitHandler = (e) => {
     e.preventDefault();
-    ctx.AddOrder({
-      id: props.id,
-      name: props.name,
-      price: props.price,
-      Amount: Amount.current.value,
-    });
+    if (Amount.current.value > 0) {
+      ctx.AddOrder({
+        id: props.id,
+        name: props.name,
+        price: props.price,
+        Amount: Amount.current.value,
+      });
+    }
   };
   return (
     <div className={Styles["Item-container"]}>
