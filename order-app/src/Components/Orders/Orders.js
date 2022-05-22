@@ -10,7 +10,7 @@ const Orders = (props) => {
   const ctxModal = useContext(modal);
   const TotalAmount = ctx.Orders.reduce((acc, item) => {
     acc += item.price * item.Amount;
-    return acc;
+    return acc.toFixed(2);
   }, 0);
 
   const AddItemToCart = (item) => {
