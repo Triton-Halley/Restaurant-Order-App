@@ -22,9 +22,12 @@ const HeaderCartButton = (props) => {
       return;
     }
     setBtnIsHighlighed(true);
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setBtnIsHighlighed(false);
     }, 300);
+    return () => {
+      clearTimeout(timer);
+    };
   }, [Orders]);
 
   return (
