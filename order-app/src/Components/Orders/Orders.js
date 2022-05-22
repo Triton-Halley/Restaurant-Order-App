@@ -6,6 +6,14 @@ import Styles from "./Orders.module.css";
 
 const Orders = (props) => {
   const ctx = useContext(AddToCartContext);
+  const TotalAmount = ctx.Orders.reduce((acc, item) => {
+    acc += item.price * item.Amount;
+    return acc;
+  }, 0);
+
+  const AddItemToCart = (item) => {};
+  const RemoveItemFromCart = (id) => {};
+
   return (
     <div
       className={[
@@ -20,8 +28,15 @@ const Orders = (props) => {
           price={item.price}
           Amount={item.Amount}
           order={item}
+          addItem={AddItemToCart.bind(null, item)}
+          removeItem={RemoveItemFromCart.bind(null, item.id)}
         />
       ))}
+
+      <div className={Styles.total}>
+        <h3>TotalAmount</h3>
+        <span>${TotalAmount}</span>
+      </div>
     </div>
   );
 };
