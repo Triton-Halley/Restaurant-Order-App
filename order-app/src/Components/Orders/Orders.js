@@ -11,7 +11,10 @@ const Orders = (props) => {
     return acc;
   }, 0);
 
-  const AddItemToCart = (item) => {};
+  const AddItemToCart = (item) => {
+    console.log(item);
+    ctx.AddOrder(item);
+  };
   const RemoveItemFromCart = (id) => {};
 
   return (
@@ -28,7 +31,7 @@ const Orders = (props) => {
           price={item.price}
           Amount={item.Amount}
           order={item}
-          addItem={AddItemToCart.bind(null, item)}
+          addItem={AddItemToCart}
           removeItem={RemoveItemFromCart.bind(null, item.id)}
         />
       ))}
