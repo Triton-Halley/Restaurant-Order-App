@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useContext, useRef } from "react";
 
 import Styles from "./FoodItem.module.css";
-
+import AddToCartContext from "../../Context/AddToCart";
 const FoodItem = (props) => {
+  const ctx = useContext(AddToCartContext);
+  const Amount = useRef();
+  const SubmitHandler = (e) => {
+    e.preventDefault();
+    ctx.AddOrder({
+      id: props.id,
+      name: props.name,
+      price: props.price,
+      Amount: Amount.current.value,
+    });
+  };
   return (
     <div className={Styles["Item-container"]}>
       <div>
@@ -11,9 +22,9 @@ const FoodItem = (props) => {
         <p className={Styles.price}>${props.price}</p>
       </div>
       <div>
-        <form className={Styles["form-Container"]}>
+        <form onSubmit={SubmitHandler} className={Styles["form-Container"]}>
           <label>Amount</label>
-          <input type="number" min={1} max={100} />
+          <input ref={Amount} type="number" min={1} max={100} />
           <button className={Styles.AddBtn}>+Add</button>
         </form>
       </div>

@@ -1,0 +1,19 @@
+.modalOff {
+  display: none;
+}
+.modalOn {
+  display: block;
+}
+.modal {
+  border-radius: 10px;
+  position: absolute;
+  color: black;
+  z-index: 1000;
+  top: 30%;
+  left: 35%;
+  right: 35%;
+  height: min-content;
+  bottom: 0;
+  background-color: #fff;
+  padding: 20px;
+}

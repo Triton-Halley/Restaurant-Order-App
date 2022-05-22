@@ -1,0 +1,40 @@
+.itemContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #7d2504;
+}
+.secPrice {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.price {
+  color: #7d2504;
+  font-weight: bold;
+}
+.sec1 {
+  width: 20%;
+}
+.name {
+  font-size: 1.3rem;
+  font-weight: bolder;
+}
+.Amount {
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 5px;
+  font-weight: bold;
+}
+.buttons button {
+  width: 40px;
+  margin-left: 5px;
+  color: #7d2504;
+  border: 1px solid #7d2504;
+  outline: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: none;
+}
