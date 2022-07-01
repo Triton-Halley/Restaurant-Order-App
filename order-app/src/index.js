@@ -4,11 +4,14 @@ import "./index.css";
 import App from "./App";
 import { AddToCartContextProvider } from "./Context/AddToCart";
 import { ModalProvider } from "./Context/ShowModal";
+import CheckoutModalProvider from "./Context/ShowCheckoutModal";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <AddToCartContextProvider>
     <ModalProvider>
-      <App />
+      <CheckoutModalProvider>
+        <App />
+      </CheckoutModalProvider>
     </ModalProvider>
   </AddToCartContextProvider>
 );

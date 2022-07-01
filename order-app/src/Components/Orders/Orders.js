@@ -2,12 +2,13 @@ import React, { useContext } from "react";
 import AddToCartContext from "../../Context/AddToCart";
 import modal from "../../Context/ShowModal";
 import OrderItem from "./OrderItem";
-
+import Overlay from "../ModalOverlay/Overlay";
 import Styles from "./Orders.module.css";
 
 const Orders = (props) => {
   const ctx = useContext(AddToCartContext);
   const ctxModal = useContext(modal);
+
   const TotalAmount = ctx.Orders.reduce((acc, item) => {
     acc += +item.price * +item.Amount;
 
@@ -26,7 +27,10 @@ const Orders = (props) => {
   const closeModalHandler = () => {
     ctxModal.closeModal();
   };
-
+  const OnOrderHandler = function () {
+    ctxModal.closeModal();
+    //TODO
+  };
   return (
     <div
       className={[
@@ -34,6 +38,11 @@ const Orders = (props) => {
         Styles.modal,
       ].join(" ")}
     >
+      <Overlay
+        isModalShow={ctxModal.isModalShow}
+        closeModal={closeModalHandler}
+      />
+
       {ctx.Orders.map((item) => (
         <OrderItem
           key={Math.random()}
@@ -52,7 +61,9 @@ const Orders = (props) => {
       </div>
       <div className={Styles.buttons}>
         <button onClick={closeModalHandler}>Close</button>
-        <button className={Styles.OrderBtn}>Order</button>
+        <button className={Styles.OrderBtn} onClick={OnOrderHandler}>
+          Order
+        </button>
       </div>
     </div>
   );

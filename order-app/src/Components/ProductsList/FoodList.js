@@ -1,48 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import FoodItem from "./FoodItem";
 
 import Styles from "./FoodList.module.css";
 
 const FoodList = () => {
-  const items = [
-    {
-      id: "F1",
-      name: "Sushi",
-      description: "Sushi is a Japanese dish of prepared vinegar's rice",
-      price: 22.29,
-    },
-    {
-      id: "F2",
-      name: "Pizza",
-      description:
-        "Pizza is a dish of Italian origin consisting of a usually round",
-      price: 30,
-    },
-    {
-      id: "F3",
-      name: "Hot Dog",
-      description:
-        "A hot dog is a food consisting of a grilled or steamed sausage served",
-      price: 15,
-    },
-    {
-      id: "F4",
-      name: "Pasta",
-      description:
-        "Pasta is a type of food typically made from an unleavened dough",
-      price: 13,
-    },
-    {
-      id: "F5",
-      name: "Burger",
-      description:
-        "A hamburger is a food consisting of fillings —usually a patty of ground meat",
-      price: 30,
-    },
-  ];
+  const [Foods, setFoods] = useState([]);
+  useEffect(() => {
+    (async function () {
+      const data_json = await fetch(
+        "https://restaurant-order-app-73653-default-rtdb.firebaseio.com/meals.json"
+      );
+      setFoods(await data_json.json());
+    })();
+  }, []);
+  console.log(Foods);
   return (
     <div className={Styles.container}>
-      {items.map((item) => (
+      {Foods.map((item) => (
         <FoodItem
           key={item.id}
           id={item.id}

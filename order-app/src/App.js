@@ -13,13 +13,13 @@ function App() {
   return (
     <div className={classes.container}>
       <Orders show={ctxModal.isModalShow} />
-      <div
+      {/* <div
         onClick={OnModalCloseHandler}
         className={[
           classes[ctxModal.isModalShow ? "modalOn" : "modalOff"],
           classes["modal-overlay"],
         ].join(" ")}
-      ></div>
+      ></div> */}
       <Header />
       <FoodList />
     </div>
